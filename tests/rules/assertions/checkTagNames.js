@@ -82,7 +82,44 @@ export default {
                     }
                 }
             }
-        }
+        },
+        {
+            code: `
+                /**
+                 * @yolo foo
+                 */
+                function quux (foo) {
+
+                }
+            `,
+            errors: [
+                {
+                    message: 'Invalid JSDoc tag name "yolo".'
+                }
+            ],
+        },
+        {
+            code: `
+                /**
+                 * @carpeDiem @yolo foo
+                 */
+                function quux (foo) {
+
+                }
+            `,
+            errors: [
+                {
+                    message: 'Invalid JSDoc tag name "carpeDiem".'
+                }
+            ],
+            settings: {
+                jsdoc: {
+                    additionalTagNames: [
+                        'yolo'
+                    ]
+                }
+            }
+        },
     ],
     valid: [
         {
@@ -109,6 +146,41 @@ export default {
                     tagNamePreference: {
                         param: 'arg'
                     }
+                }
+            }
+        },
+        {
+            code: `
+                /**
+                 * @yolo foo
+                 */
+                function quux (foo) {
+
+                }
+            `,
+            settings: {
+                jsdoc: {
+                    additionalTagNames: [
+                        'yolo'
+                    ]
+                }
+            }
+        },
+        {
+            code: `
+                /**
+                 * @carpeDiem @yolo foo
+                 */
+                function quux (foo) {
+
+                }
+            `,
+            settings: {
+                jsdoc: {
+                    additionalTagNames: [
+                        'carpeDiem',
+                        'yolo'
+                    ]
                 }
             }
         },

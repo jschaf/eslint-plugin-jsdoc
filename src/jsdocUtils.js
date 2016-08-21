@@ -66,8 +66,10 @@ const getPreferredTagName = (name : string, tagPreference : Object = {}) : strin
     return _.has(tagPreference, name) ? tagPreference[name] : name;
 };
 
-const isValidTag = (name : string) : boolean => {
-    const validTagNames = _.keys(tagNames).concat(_.flatten(_.values(tagNames)));
+const isValidTag = (name : string, additionalTagNames : Array<string>) : boolean => {
+    const validTagNames = _.keys(tagNames)
+          .concat(_.flatten(_.values(tagNames)))
+          .concat(additionalTagNames);
 
     return _.includes(validTagNames, name);
 };
