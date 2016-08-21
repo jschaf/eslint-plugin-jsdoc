@@ -116,6 +116,25 @@ Use `settings.jsdoc.tagNamePreference` to configure a preferred alias name for a
 }
 ```
 
+<h3 id="eslint-plugin-jsdoc-settings-additional-tag-names">Additional Tag Names</h3>
+
+Use `settings.jsdoc.additionalTagNames` to configure additional, allowed JSDoc tags. The format of the configuration is an array of tag names, e.g.
+
+```json
+{
+    "rules": {},
+    "settings": {
+        "jsdoc": {
+            "additionalTagNames": [
+                "define",
+                "extends",
+                "record"
+            ]
+        }
+    }
+}
+```
+
 <h2 id="eslint-plugin-jsdoc-rules">Rules</h2>
 
 <h3 id="eslint-plugin-jsdoc-rules-check-param-names"><code>check-param-names</code></h3>
